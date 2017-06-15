@@ -1,0 +1,57 @@
+<section class="search movie-page-block">
+    <div class="search-container">Search movie:
+        <input type="text" name="movieSearch" class="movie-search" ng-model="searchMovieTitle"/>
+        <button type="button" class="search-submit" name="searchSubmit" ng-click="search.searchMovie(searchMovieTitle, plot)">Search</button>
+        <span class="full-plot"><input type="checkbox" name="fullPlot" ng-model="plot">I would like to see full plot of the movie.</span>
+    </div>
+
+    <div ng-if="search.searchMovieDetails" class="searched-movie movies">
+        <div class="movie-poster">
+            <img src="{{search.searchMovieDetails.Poster}}" class="movie-poster-img">
+        </div>
+        <ul class="movie-details">
+            <li class="movie-detail"><b>Title: </b>{{search.searchMovieDetails.Title}}</li>
+            <li class="movie-detail"><b>Year: </b>{{search.searchMovieDetails.Year}}</li>
+            <li class="movie-detail"><b>Rated: </b>{{search.searchMovieDetails.Rated}}</li>
+            <li class="movie-detail"><b>Released: </b>{{search.searchMovieDetails.Released}}</li>
+            <li class="movie-detail"><b>Runtime: </b>{{search.searchMovieDetails.Runtime}}</li>
+            <li class="movie-detail">
+                <b>Genre: </b>
+                <ul>
+                    <li ng-repeat="genrelist in search.searchMovieDetails.Genre">{{genrelist}}</li>
+                </ul>
+            </li>
+            <li class="movie-detail"><b>Director: </b>{{search.searchMovieDetails.Director}}</li>
+            <li class="movie-detail">
+                <b>Writer: </b>
+                <ul>
+                    <li ng-repeat="writerlist in search.searchMovieDetails.Writer" >{{writerlist}}</li>
+                </ul>
+            </li>
+            <li class="movie-detail">
+                <b>Actors: </b>
+                <ul>
+                    <li ng-repeat="actor in search.searchMovieDetails.Actors" >{{actor}}</li>
+                </ul>
+            </li>
+            <li class="movie-detail"><b>Plot: </b>{{search.searchMovieDetails.shortPlot}}
+                <a href="" ng-if="search.searchMovieDetails.readMore" ng-click="search.readMore()">Read more..</a>
+            </li>
+            <li class="movie-detail">
+                <b>Languages: </b>
+                <ul>
+                    <li  ng-repeat="lang in search.searchMovieDetails.Language">{{lang}}</li>
+                </ul>
+            </li>
+            <li class="movie-detail"><b>Awards: </b>{{search.searchMovieDetails.Awards}}</li>
+            <ul class="movie-detail" ng-repeat="ratings in search.searchMovieDetails.Ratings">
+                <b>Ratings: </b>
+                <li>{{ratings.Source}}</li>
+            </ul>
+            <li class="movie-detail"><b>imdbRating: </b>{{search.searchMovieDetails.imdbRating}}</li>
+            <li class="movie-detail"><b>imdbVotes: </b>{{search.searchMovieDetails.imdbVotes}}</li>
+            <li class="movie-detail"><b>Type: </b>{{search.searchMovieDetails.Type}}</li>
+        </ul>
+    </div>
+
+</section>

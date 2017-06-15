@@ -1,0 +1,13 @@
+<section class="feature movie-page-block">
+    <div ng-repeat="movie in featured.featureMovie track by $index" class="featured-movie movies">
+        <div class="movie-poster">
+            <img src="{{movie.Poster}}" class="movie-poster-img">
+        </div>
+        <ul class="movie-details">
+            <li class="movie-detail"><b>Title: </b>{{movie.Title}}</li>
+            <li class="movie-detail"><b>Year: </b>{{movie.Year}}</li>
+            <li class="movie-detail"><b>Awards: </b>{{movie.Awards}}</li>
+            <li class="movie-detail"><b>Plot: </b>{{movie.Plot}}</li>
+        </ul>
+    </div>
+</section>

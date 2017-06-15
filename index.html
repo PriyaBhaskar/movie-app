@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="no-js" lang="nl">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui"/>
+    <title>Movie App</title>
+
+    <!-- Feature scripts -->
+    <script src="./lib/angular/angular.js"></script>
+    <script src="./lib/angular-route/angular-route.js"></script>
+    <script src="./dist/movie-app/module.js"></script>
+    <!-- // Feature scrips -->
+
+    <!-- stubs / mocks -->
+    <script src="./lib/angular-mocks/angular-mocks.js"></script>
+    <script src="./stubs/services/mockHttp.js"></script>
+    <script src="stubs/services/stub-data-backend.js"></script>
+
+    <!-- the main entry point -->
+
+    <!-- build:css movie-app/module.css -->
+    <link rel="stylesheet" href="./tmp/movie-app/module.css" />
+    <!-- endbuild -->
+
+</head>
+
+<body ng-app="entry" class="movie-app-body">
+    <header class="header">
+        <div class="main-header">MOVIE APP</div>
+        <div class="sub-header">Find out everything about your favorite movies here..</div>
+    </header>
+    <movie-app></movie-app>
+    <footer class="footer">
+        <small class="footer-content">Copyrights</small>
+    </footer>
+</body>
+
+<script>
+    angular.module('entry', ['app.movie-app','app.mock'])
+            .run(function($httpBackend, stubDataBackend, $templateCache, $http) {
+                'use strict';
+                $httpBackend.when('GET', "http://localhost:9000/search").respond(stubDataBackend.respond('/search'));
+                $httpBackend.when('GET', "http://localhost:9000/searchfull").respond(stubDataBackend.respond('/searchfull'));
+                $httpBackend.when('GET', "http://localhost:9000/featured").respond(stubDataBackend.respond('/featured'));
+                $httpBackend.when('GET', /^.*/).passThrough();
+                /* Uncomment it when 500 error has to be mocked */
+               /* $httpBackend.when('POST', "http://localhost:9000/search").respond(500);*/
+    });
+
+</script>
+
+</html>
