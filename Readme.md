@@ -10,9 +10,9 @@ Main Focus:
 ## Prequisites to build stand alone FE ##
 
 Install:
-    -Git
-    -NodeJS + npm
-    -grunt (npm install --global grunt)
+    - Git
+    - NodeJS + npm
+    - grunt (npm install --global grunt)
 
 
 ## Getting started ##
