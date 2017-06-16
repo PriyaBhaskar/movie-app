@@ -14,11 +14,10 @@ Install:
     - NodeJS + npm
     - grunt (npm install --global grunt)
 
-
 ## Getting started ##
 1. installing all the required parts.
 2. clone the project from github using
-    **git clone <url> **
+    **git clone https://github.com/PriyaBhaskar/movie-app.git**
 3. In the root of the project, where the package.json is, open the command line.
 4. type:  **npm install**
     This will download and install all the required packages from grunt for development purposes. (like compass, jshint, minify, etc..)
