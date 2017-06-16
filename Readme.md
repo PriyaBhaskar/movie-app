@@ -21,7 +21,7 @@ Install:
     This will download and install all the required packages from grunt for development purposes. (like compass, jshint, minify, etc..)
     Also, the required libraries will be pulled into the project like Angular.
     This command will create a folder in the project root calls "node_modules"
-## Build and run using grunt##
+## Build and run using grunt ##
 4. type: grunt build-feature
    This will compile the scss, do checks , optimize, and create and concatenate all the javascripts for the app, and put in the dist folder and also start the local server.
 5. open browser and type localhost:9000/index.html

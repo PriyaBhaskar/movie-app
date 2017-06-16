@@ -3,7 +3,6 @@ describe('searchMovie.Service', function() {
 
     var searchService, httpBackend, appConstants, abortService;
 
-
     beforeEach(module('app.movie-app'));
 
     beforeEach(inject(function($injector) {
@@ -14,27 +13,30 @@ describe('searchMovie.Service', function() {
 
     }));
 
-    it('should get best matching employee data from service', function(){
-        httpBackend.expectGET(appConstants.searchStubApi).respond(200, {});
+    it('should get searched movie data with plot from service', function(){
+        httpBackend.expectGET(appConstants.searchApi).respond(200);
         var deferredObj = searchService.searchMovie();
         deferredObj.then(function(data){
-            expect(data).toEqual({});
         });
         httpBackend.flush();
     });
 
-    it('should get best matching employee data from service', function(){
-        httpBackend.expectGET(appConstants.searchfullStubApi).respond(200, {});
+    it('should get searched movie data with full plot from service', function(){
+        httpBackend.expectGET(appConstants.searchStubFullApi).respond(200, {});
         var deferredObj = searchService.getStubMovie(appConstants.searchfullStubApi);
         deferredObj.then(function(data){
-            expect(data).toEqual({});
+            expect(data.data).toEqual({});
         });
         httpBackend.flush();
     });
 
-    it('should get default photo when employee photo fails to load', function(){
-        httpBackend.expectGET(appConstants.searchStubApi).respond(404);
-        searchService.searchMovie();
+    it('should get error code when the search service call fails', function(){
+        httpBackend.expectGET(appConstants.searchApi).respond(404);
+        var deferredObj = searchService.searchMovie();
+        deferredObj.then(function(){}, function (error) {
+            expect(error.status).toEqual(404);
+        });
+        abortService.remove();
         httpBackend.flush();
     });
 

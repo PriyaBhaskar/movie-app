@@ -20,8 +20,7 @@
         }
 
         function showErrorNotification(error) {
-            if(error.status >= 500 && error.status <=599) {
-            }
+            vm.featureMovieError = true;
         }
 
     }
