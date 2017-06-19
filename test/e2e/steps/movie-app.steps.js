@@ -1,38 +1,37 @@
 var path = require('path'),
-    registrationPagePO = require('../page-objects/tnt.registration.page.js'),
+    movieAppPagePO = require('../page-objects/movie.app.page.js'),
     localConfig = require(path.resolve(__dirname, '../../../e2e.conf')).settings,
 
-    registrationflow = "//section[contains(@class,'tnt-registration-flow')]//img[@class='input-details']";
+    movieApp = "//section[contains(@class,'movie-app')]//img[@class='input-details']";
 
-function registrationFlowSteps() {
+function movieAppSteps() {
     'use strict';
     /*jshint validthis:true */
-    this.Given(/^I am in registration page$/, checkRegistrationPage);
-    this.When(/^I enter the username$/, getUsername);
-    this.When(/^I enter the password$/, getPassword);
-    this.When(/^I enter the confirm password$/, getConfirmPassword);
-    this.Then(/^The password validation should happen$/, validatePassword);
-    this.Then(/^The confirm password should match with the password$/, validateConfirmPassword);
+    this.Given(/^I am in search page$/, checksearchPage);
+    this.When(/^I enter the moviename$/, getMoviename);
+    this.Given(/^I am in featured page$/, checkFeaturedPage);
+    this.Then(/^The search movie should appear on the screen$/, searchMovie);
+    this.Then(/^The featured movie should appear on the screen$/, featuredMovie);
 
 
-    function checkRegistrationPage(headerTxt,callback){
-        expect(registrationPagePO.getElementByClassName(main-header).getText()).to.eventually.equal(headerTxt).and.notify(callback);
+    function checksearchPage(headerTxt,callback){
+        expect(movieAppPagePO.getElementByClassName(main-header).getText()).to.eventually.equal(headerTxt).and.notify(callback);
     }
 
-    function getUsername(fotoUrl, callback){
+    function getMoviename(url, callback){
         /* TODO: implementation to get username */
     }
 
-    function getPassword(defTxt, callback) {
+    function checkFeaturedPage(defTxt, callback) {
         /* TODO: implementation to get username */
     }
 
 
-    function getConfirmPassword(callback){
+    function searchMovie(callback){
         /* TODO: implementation to get username */
     }
 
-    function validatePassword(bmeText,bmeBranch,callback)
+    function featuredMovie(bmeText,bmeBranch,callback)
     {
         /* TODO: implementation to get username */
     }
@@ -40,4 +39,4 @@ function registrationFlowSteps() {
 
 }
 
-module.exports = registrationFlowSteps;
+module.exports = movieAppSteps;

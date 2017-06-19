@@ -1,15 +1,24 @@
-Feature: TNT Registration page
-  The registration page
+Feature: Movie App Application page
+  The Search page
   enables the user to
-  register in the website
+  search movies in the website
+
+  @LocalServer
+  Scenario: The movie app name on header
+    Given I am in search page
+    When I enter the movie name
+    Then The search movie should appear on the screen
+
+
+Feature: Movie App Application page
+  The Feature page
+  enables the user to
+  see the featured movies in the website
 
   @LocalServer
   Scenario: The bank name on header
-    Given I am in registration page
-    When I enter the username
-    When I enter the password
-    Then The password validation should happen
-    When I enter the confirm password
-    Then The confirm password should match with the password
+    Given I am in featured page
+    When I am in featured page
+    Then The featured movies should happen
 
 

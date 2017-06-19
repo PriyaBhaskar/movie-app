@@ -3,7 +3,7 @@ var webdriver = require('selenium-webdriver'),
     until = webdriver.until;
 var waitForTime = 12000;
 
-function tntRegistrationPage() {
+function moveAppPage() {
     'use strict';
 
     return {
@@ -124,4 +124,4 @@ function tntRegistrationPage() {
 
 }
 
-module.exports = tntRegistrationPage();
+module.exports = moveAppPage();

@@ -6,7 +6,7 @@ config.multiCapabilities = [
 
     {
         // used for selenium (grid)
-        applicationName: "registration_regression",
+        applicationName: "movieapp_regression",
         browserName: 'chrome',
         shardTestFiles: true,
         // custom
