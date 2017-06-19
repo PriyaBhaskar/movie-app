@@ -26,7 +26,7 @@ describe('Test for search movie controller', function () {
                 this.successCallback(data);
             };
             this.reject = function (error) {
-                this.catchCallback(error);
+                this.catchCallback = error;
             };
         };
 
@@ -100,7 +100,7 @@ describe('Test for search movie controller', function () {
         vm = createController();
         var error = {'status': 500};
         vm.searchMovie("The Holiday", "full");
-        searchService.deferredObj.reject(500);
+        searchService.deferredObj.reject(error);
     });
 
 });
